@@ -37,11 +37,24 @@ const paises = [
     }
 ];
 
+let pais = document.getElementById("paises").innerHTML;
+console.log(pais);
+
+
+for (let objeto  of paises){
+    for(let datos in objeto)
+    console.log(`${datos}  ${datos[datos]}`);
+}
+
+
+
+
+
 agregarMonitores();
 
 //funcion para agregar listeners a los botones
 function agregarMonitores() {
-    //TODO
+    
 }
 
 
