@@ -43,6 +43,7 @@ for (let estudiante of lista_estudiantes) {
 for (let estudiante of lista_estudiantes) {
     //
     contenido_tabulado += "\n<tr>"
+    
     for (let propiedad in estudiante) {
         if (propiedad == "notas") {
             //nota toma los valores 0 1 2, que son los indices del arreglo
