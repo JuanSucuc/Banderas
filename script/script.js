@@ -37,17 +37,30 @@ const paises = [
     }
 ];
 
-let pais = document.getElementById("paises").innerHTML;
-console.log(pais);
+// mi scrips
+
+let ListaDeBanderas = "";
+
+console.log("hola");
+
+//////////////
+
+for(let pais of paises){
 
 
-for (let objeto  of paises){
-    for(let datos in objeto)
-    console.log(`${datos}  ${datos[datos]}`);
+    for(datosPais in pais){
+        console.log(datosPais);
+        
+        ListaDeBanderas += "\n <div>" + datosPais + "</div>";
+        ListaDeBanderas += "\n <div>" + pais[datosPais] + "</div>";
+    
+    
+    }
+    
 }
 
 
-
+console.log(ListaDeBanderas);
 
 
 agregarMonitores();
@@ -66,3 +79,7 @@ function mostrarPaises() {
 //funcion que permite agregar un pais al arreglo
 function agregarPais() {
 }
+
+
+document.getElementById("paises").innerHTML = ListaDeBanderas;
+
