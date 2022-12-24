@@ -40,34 +40,11 @@ const paises = [
 // mi scrips
 
 let ListaDeBanderas = "";
+let igual = "=";
+let comillas = '"';
 
-console.log("hola");
 
 //////////////
-
-for(let pais of paises){
-
-ListaDeBanderas += '<table class="table"><tr>';
-    for(datosPais in pais){
-        console.log(datosPais);
-        
-        ListaDeBanderas += "\n <th>" + datosPais + "</th>";
-    
-    }
-    ListaDeBanderas += '</tr>';
-
-    ListaDeBanderas += '<tr>';
-    for(datosPais in pais){
-        console.log(datosPais);
-        
-        ListaDeBanderas += "\n <td>" + pais[datosPais] + "</td>";
-    
-    }
-    ListaDeBanderas += '</tr></table>';
-}
-
-
-console.log(ListaDeBanderas);
 
 
 agregarMonitores();
@@ -80,13 +57,62 @@ function agregarMonitores() {
 
 //funcion que mostrara las paises en la pagina
 function mostrarPaises() {
-  //TODO
+    for(let pais of paises){
+
+        ListaDeBanderas += '<table class="table text-center table-hover table-bordered"><tr>';
+            for(datosPais in pais){
+                if(datosPais == "bandera"){
+                    datosPais = null;
+                } else{
+                      ListaDeBanderas += "\n <th>" + datosPais + "</th>";
+                }
+            }
+    
+            ListaDeBanderas += '</tr>';
+    
+            for(datosPais in pais){
+                if(datosPais == "bandera"){
+                    datosPais = null;
+                } else{
+                      ListaDeBanderas += "\n <td>" + pais[datosPais] + "</td>";
+                }
+            }
+    
+            ListaDeBanderas += '</tr>';
+    
+            ListaDeBanderas += '<<tr>';
+            for(datosPais in pais){
+                if(datosPais == "bandera"){
+                    ListaDeBanderas += '\n <td colspan="4">' + '<img src' + igual + comillas + pais[datosPais] + comillas + '>' + '</img>' + "</td>";
+                    
+                } else{
+                    datosPais = null;
+                }
+            }
+    
+            ListaDeBanderas += '</tr></>';
+    
+    }
+    document.getElementById("paises").innerHTML = ListaDeBanderas;
+    
 }
 
 //funcion que permite agregar un pais al arreglo
 function agregarPais() {
 }
 
+let todoslospaise = document.querySelector("#mostrarPaises");
+todoslospaise.addEventListener("click",
+    function () {
+        mostrarPaises();
+    });
 
-document.getElementById("paises").innerHTML = ListaDeBanderas;
+    let quitarPaises = document.querySelector("#mostrarPaises");
+
+    quitarPaises.addEventListener("dblclick",
+    function () {
+        document.getElementById("paises").innerHTML = "";
+    });
+
+
 
