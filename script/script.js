@@ -47,16 +47,23 @@ console.log("hola");
 
 for(let pais of paises){
 
-
+ListaDeBanderas += '<table class="table"><tr>';
     for(datosPais in pais){
         console.log(datosPais);
         
-        ListaDeBanderas += "\n <div>" + datosPais + "</div>";
-        ListaDeBanderas += "\n <div>" + pais[datosPais] + "</div>";
-    
+        ListaDeBanderas += "\n <th>" + datosPais + "</th>";
     
     }
+    ListaDeBanderas += '</tr>';
+
+    ListaDeBanderas += '<tr>';
+    for(datosPais in pais){
+        console.log(datosPais);
+        
+        ListaDeBanderas += "\n <td>" + pais[datosPais] + "</td>";
     
+    }
+    ListaDeBanderas += '</tr></table>';
 }
 
 
