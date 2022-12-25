@@ -97,14 +97,26 @@ function agregarMonitores() {
     document.querySelector("#mostrarPaises").addEventListener("click",
 function () {
     mostrarPaises();
+    if(document.getElementById("mostrarPaises").innerHTML == "Mostrar paises"){
+        document.getElementById("mostrarPaises").innerHTML = "Doble click para ocultar Paises";
+    }
 });
 
     //listeners para ocultar paises
 document.querySelector("#mostrarPaises").addEventListener("dblclick",
 function () {
     document.getElementById("paises").innerHTML = "";
+    if(document.getElementById("mostrarPaises").innerHTML == "Doble click para ocultar Paises"){
+        document.getElementById("mostrarPaises").innerHTML = "Mostrar paises";
+    }
 });
 
+
+//listerners para agregar paises
+document.querySelector("#agregarPais").addEventListener("click",
+    function () {
+        agregarPais();
+    });
 
 }
 
@@ -162,10 +174,6 @@ function agregarPais() {
 
 }
 
-document.querySelector("#agregarPais").addEventListener("click",
-    function () {
-        agregarPais();
-    });
 
 
 
