@@ -45,7 +45,7 @@ const paises = [
 //funcion de captura de datos
 
 function agregarDatos(){
-    let nombre = prompt("Ingrese un nombre");
+    let nombre = prompt("Ingrese nombre de Pais");
     if(nombre == null || nombre.length == 0){
         return null;
     }
@@ -53,13 +53,16 @@ function agregarDatos(){
         return null;
     }
 
-    let bandera = prompt("Ingrese bandera");
+    let bandera = prompt("Ingrese URL imagen de bandera");
     if(bandera === null || bandera.length === 0){
         return null;
     }
     if(bandera == +" "){
         return null;
     }
+    if (!/^https?:\/\/.+/.test(bandera)) {
+        return null;
+      }
 
     let capital = prompt("Ingrese nombre de Capital");
     if(capital == null || capital.length == 0){
