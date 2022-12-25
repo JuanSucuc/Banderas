@@ -1,3 +1,7 @@
+//variables Globales
+let igual = "=";
+let comillas = '"';
+
 //Arreglo con paises iniciales
 const paises = [
     {
@@ -37,11 +41,23 @@ const paises = [
     }
 ];
 
-// mi scrips
 
-let ListaDeBanderas = "";
-let igual = "=";
-let comillas = '"';
+//funcion de captura de datos
+
+function agregarDatos(){
+    let nombre = prompt("Ingrese un nombre");
+    let bandera = prompt("Ingrse bandera");
+    let capital = prompt("Ingrese nombre de Capital");
+    let idioma_oficial = prompt("Ingrese idioma");
+    let moneda = prompt("Ingrese moneda");
+   
+    return {'nombre':nombre, 'bandera': bandera, 'capital': capital, 'idioma': idioma_oficial, 'moneda':moneda};
+}
+
+
+
+
+
 
 
 //////////////
@@ -51,12 +67,27 @@ agregarMonitores();
 
 //funcion para agregar listeners a los botones
 function agregarMonitores() {
-    
+
+    //listeners del boton mostrar paises
+    document.querySelector("#mostrarPaises").addEventListener("click",
+function () {
+    mostrarPaises();
+});
+
+    //listeners para ocultar paises
+document.querySelector("#mostrarPaises").addEventListener("dblclick",
+function () {
+    document.getElementById("paises").innerHTML = "";
+});
+
+
 }
 
 
 //funcion que mostrara las paises en la pagina
 function mostrarPaises() {
+let ListaDeBanderas = "";
+
     for(let pais of paises){
 
         ListaDeBanderas += '<table class="table text-center table-hover table-bordered"><tr>';
@@ -64,12 +95,13 @@ function mostrarPaises() {
                 if(datosPais == "bandera"){
                     datosPais = null;
                 } else{
-                      ListaDeBanderas += "\n <th>" + datosPais + "</th>";
+                      ListaDeBanderas += "<th>" + datosPais + "</th>";
                 }
             }
     
             ListaDeBanderas += '</tr>';
-    
+
+            ListaDeBanderas += '<tr>';
             for(datosPais in pais){
                 if(datosPais == "bandera"){
                     datosPais = null;
@@ -80,7 +112,7 @@ function mostrarPaises() {
     
             ListaDeBanderas += '</tr>';
     
-            ListaDeBanderas += '<<tr>';
+            ListaDeBanderas += '<tr>';
             for(datosPais in pais){
                 if(datosPais == "bandera"){
                     ListaDeBanderas += '\n <td colspan="4">' + '<img src' + igual + comillas + pais[datosPais] + comillas + '>' + '</img>' + "</td>";
@@ -90,7 +122,7 @@ function mostrarPaises() {
                 }
             }
     
-            ListaDeBanderas += '</tr></>';
+            ListaDeBanderas += '</tr></table>';
     
     }
     document.getElementById("paises").innerHTML = ListaDeBanderas;
@@ -99,20 +131,19 @@ function mostrarPaises() {
 
 //funcion que permite agregar un pais al arreglo
 function agregarPais() {
+    let masPaise = agregarDatos();
+    paises.unshift(masPaise);
+    mostrarPaises();
+
 }
 
-let todoslospaise = document.querySelector("#mostrarPaises");
-todoslospaise.addEventListener("click",
+document.querySelector("#agregarPais").addEventListener("click",
     function () {
-        mostrarPaises();
+        agregarPais();
     });
 
-    let quitarPaises = document.querySelector("#mostrarPaises");
 
-    quitarPaises.addEventListener("dblclick",
-    function () {
-        document.getElementById("paises").innerHTML = "";
-    });
+
 
 
 
