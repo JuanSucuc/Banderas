@@ -46,12 +46,37 @@ const paises = [
 
 function agregarDatos(){
     let nombre = prompt("Ingrese un nombre");
-    let bandera = prompt("Ingrse bandera");
+    if(nombre == null || nombre.length == 0){
+        return null;
+    }
+
+    let bandera = prompt("Ingrese bandera");
+    if(bandera === null || bandera.length === 0){
+        return null;
+    }
+
     let capital = prompt("Ingrese nombre de Capital");
+    if(capital == null || capital.length == 0){
+        return null;
+    }
+
     let idioma_oficial = prompt("Ingrese idioma");
+    if(idioma_oficial == null || idioma_oficial.length == 0){
+        return null;
+    }
+
     let moneda = prompt("Ingrese moneda");
+    if(moneda == null || moneda.length == 0){
+        return null;
+    }
+
    
-    return {'nombre':nombre, 'bandera': bandera, 'capital': capital, 'idioma': idioma_oficial, 'moneda':moneda};
+    return {'nombre':nombre, 
+    'bandera': bandera,
+     'capital': capital, 
+     'idioma': idioma_oficial, 
+     'moneda':moneda
+    };
 }
 
 
