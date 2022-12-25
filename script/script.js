@@ -49,9 +49,15 @@ function agregarDatos(){
     if(nombre == null || nombre.length == 0){
         return null;
     }
+    if(nombre == +" "){
+        return null;
+    }
 
     let bandera = prompt("Ingrese bandera");
     if(bandera === null || bandera.length === 0){
+        return null;
+    }
+    if(bandera == +" "){
         return null;
     }
 
@@ -59,14 +65,23 @@ function agregarDatos(){
     if(capital == null || capital.length == 0){
         return null;
     }
+    if(capital == +" "){
+        return null;
+    }
 
     let idioma_oficial = prompt("Ingrese idioma");
     if(idioma_oficial == null || idioma_oficial.length == 0){
         return null;
     }
+    if(idioma_oficial == +" "){
+        return null;
+    }
 
     let moneda = prompt("Ingrese moneda");
     if(moneda == null || moneda.length == 0){
+        return null;
+    }
+    if(moneda == +" "){
         return null;
     }
 
@@ -127,18 +142,18 @@ let ListaDeBanderas = "";
 
     for(let pais of paises){
 
-        ListaDeBanderas += '<table class="table text-center table-hover table-bordered"><tr>';
+        ListaDeBanderas += '<table class="table table-bordered text-center"><thead class="table-dark"><tr>';
             for(datosPais in pais){
                 if(datosPais == "bandera"){
                     datosPais = null;
                 } else{
-                      ListaDeBanderas += "<th>" + datosPais + "</th>";
+                      ListaDeBanderas += "<th>" + datosPais  + ":"  + "</th>";
                 }
             }
     
-            ListaDeBanderas += '</tr>';
+            ListaDeBanderas += '</tr></thead>';
 
-            ListaDeBanderas += '<tr>';
+            ListaDeBanderas += '<tbody><tr>';
             for(datosPais in pais){
                 if(datosPais == "bandera"){
                     datosPais = null;
@@ -159,7 +174,7 @@ let ListaDeBanderas = "";
                 }
             }
     
-            ListaDeBanderas += '</tr></table>';
+            ListaDeBanderas += '</tr><tbody</table>';
     
     }
     document.getElementById("paises").innerHTML = ListaDeBanderas;
